@@ -1,0 +1,233 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Community Hub Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create user profile system with view and edit capabilities",
+      "acceptanceCriteria": [
+        "Users can create and update their profile information",
+        "Profile displays username, bio, and avatar image",
+        "Users can only edit their own profiles"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create modal component for initial profile setup prompting new users to enter username and bio. Use the authorization component's getCallerUserProfile and saveCallerUserProfile backend methods. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileView.tsx",
+          "operation": "create",
+          "description": "Create profile view component displaying username, bio, and avatar. Use blob-storage component's ExternalBlob.getDirectURL() method to display avatar images. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileEditForm.tsx",
+          "operation": "create",
+          "description": "Create profile edit form component allowing users to update username, bio, and upload avatar. Use blob-storage component's ExternalBlob.fromBytes() for avatar uploads with withUploadProgress for progress tracking. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useGetCallerUserProfile.ts",
+          "operation": "create",
+          "description": "Create custom hook wrapping getCallerUserProfile with React Query, following authorization component's pattern to prevent modal flash by checking actor availability. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useSaveCallerUserProfile.ts",
+          "operation": "create",
+          "description": "Create mutation hook for saveCallerUserProfile that invalidates the currentUserProfile query key on success."
+        },
+        {
+          "path": "frontend/src/hooks/useUpdateAvatar.ts",
+          "operation": "create",
+          "description": "Create mutation hook for updateAvatar backend method that invalidates the currentUserProfile query key on success."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ProfileSetupModal to show when user is authenticated but has no profile, using the authorization component's pattern with isAuthenticated && !profileLoading && isFetched && userProfile === null. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement post creation and chronological feed display",
+      "acceptanceCriteria": [
+        "Users can create new text posts with content",
+        "All posts display in a feed sorted by most recent first",
+        "Each post shows the author's username and timestamp"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PostCreationForm.tsx",
+          "operation": "create",
+          "description": "Create form component for creating new posts using createPost backend method. Include text area for content input and submit button."
+        },
+        {
+          "path": "frontend/src/components/PostFeed.tsx",
+          "operation": "create",
+          "description": "Create feed component displaying all posts in chronological order (most recent first) using getAllPosts backend method. Each post item shows author username, content, and formatted timestamp."
+        },
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "create",
+          "description": "Create reusable post card component displaying post content, author username (fetched via getUserProfile), timestamp, and placeholder for like/comment interactions."
+        },
+        {
+          "path": "frontend/src/hooks/useGetAllPosts.ts",
+          "operation": "create",
+          "description": "Create query hook for getAllPosts that sorts posts by timestamp descending before returning."
+        },
+        {
+          "path": "frontend/src/hooks/useCreatePost.ts",
+          "operation": "create",
+          "description": "Create mutation hook for createPost that invalidates the allPosts query key on success."
+        },
+        {
+          "path": "frontend/src/hooks/useGetUserProfile.ts",
+          "operation": "create",
+          "description": "Create query hook for getUserProfile accepting userId parameter to fetch other users' profile information."
+        },
+        {
+          "path": "frontend/src/pages/FeedPage.tsx",
+          "operation": "create",
+          "description": "Create main feed page component combining PostCreationForm and PostFeed components with proper authentication guards."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire FeedPage as the main authenticated view, displaying it after successful login and profile setup completion."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add like functionality with counts and duplicate prevention",
+      "acceptanceCriteria": [
+        "Users can like/unlike posts",
+        "Like count displays on each post",
+        "Users cannot like their own posts multiple times"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LikeButton.tsx",
+          "operation": "create",
+          "description": "Create like button component using likePost and getLikeCount backend methods. Display current like count and handle like action with optimistic updates."
+        },
+        {
+          "path": "frontend/src/hooks/useLikePost.ts",
+          "operation": "create",
+          "description": "Create mutation hook for likePost that invalidates relevant post and like count queries on success."
+        },
+        {
+          "path": "frontend/src/hooks/useGetLikeCount.ts",
+          "operation": "create",
+          "description": "Create query hook for getLikeCount accepting postId parameter to fetch like count for specific posts."
+        },
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "modify",
+          "description": "Integrate LikeButton component into PostCard, passing postId prop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create commenting system with display and authorship",
+      "acceptanceCriteria": [
+        "Users can add text comments to any post",
+        "Comments display under their respective posts",
+        "Each comment shows the commenter's username and timestamp"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CommentForm.tsx",
+          "operation": "create",
+          "description": "Create comment form component using addComment backend method with postId prop. Include text input and submit button."
+        },
+        {
+          "path": "frontend/src/components/CommentList.tsx",
+          "operation": "create",
+          "description": "Create comment list component displaying all comments for a post using getComments backend method. Each comment shows commenter username (via getUserProfile), content, and formatted timestamp."
+        },
+        {
+          "path": "frontend/src/components/CommentItem.tsx",
+          "operation": "create",
+          "description": "Create individual comment item component displaying comment author username, content, and timestamp."
+        },
+        {
+          "path": "frontend/src/hooks/useGetComments.ts",
+          "operation": "create",
+          "description": "Create query hook for getComments accepting postId parameter to fetch comments for specific posts."
+        },
+        {
+          "path": "frontend/src/hooks/useAddComment.ts",
+          "operation": "create",
+          "description": "Create mutation hook for addComment that invalidates the comments query for the specific postId on success."
+        },
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "modify",
+          "description": "Integrate CommentList and CommentForm components into PostCard to display and allow commenting on posts."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Design vibrant community-focused interface with warm color palette",
+      "acceptanceCriteria": [
+        "Visual design uses warm, inviting colors that avoid blue and purple",
+        "Interface elements use consistent rounded corners and friendly spacing",
+        "Layout facilitates easy browsing and interaction with community content"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update Tailwind config to extend theme with warm color palette: coral (#FF6B6B, #FF8787), teal (#20C997, #38D9A9), amber (#FD7E14, #FFA94D) as primary/accent colors. Configure rounded corners (lg, xl, 2xl) as defaults."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with warm color variables, friendly typography using rounded sans-serif font stack, and base card styling with rounded corners and friendly spacing."
+        },
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "modify",
+          "description": "Apply card-based layout with rounded corners (rounded-xl), warm background colors, and generous padding for friendly interaction design."
+        },
+        {
+          "path": "frontend/src/components/ProfileView.tsx",
+          "operation": "modify",
+          "description": "Apply rounded avatar styling (rounded-full), warm accent colors for profile elements, and card-based layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Display generated community platform images as static assets",
+      "acceptanceCriteria": [
+        "Hero banner image displays prominently on the main page",
+        "Community icon appears in appropriate locations throughout the interface",
+        "Images load from frontend/public/assets/generated directory"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/FeedPage.tsx",
+          "operation": "modify",
+          "description": "Add hero banner section at the top displaying the generated hero banner image from frontend/public/assets/generated/hero-banner.dim_1200x400.png with appropriate sizing and responsive design."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create header component displaying the community icon from frontend/public/assets/generated/community-icon.dim_128x128.png alongside the application title."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire Header component into the main app layout to display across all authenticated views."
+        }
+      ]
+    }
+  ]
+}

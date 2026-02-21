@@ -1,0 +1,147 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-user-profile-system-where-community-members-can-view-and-edit-their-own-profiles-with-username-bio-and-avatar",
+      "featureTitle": "Create a user profile system where community members can view and edit their own profiles with username, bio, and avatar",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/hooks/useGetCallerUserProfile.ts",
+        "frontend/src/hooks/useSaveCallerUserProfile.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-post-creation-and-feed-system-where-users-can-create-text-posts-and-view-a-chronological-feed-of-all-community-posts",
+      "featureTitle": "Implement a post creation and feed system where users can create text posts and view a chronological feed of all community posts",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/PostCard.tsx",
+        "frontend/src/components/PostCreationForm.tsx",
+        "frontend/src/components/PostFeed.tsx",
+        "frontend/src/hooks/useCreatePost.ts",
+        "frontend/src/hooks/useGetAllPosts.ts",
+        "frontend/src/hooks/useGetUserProfile.ts",
+        "frontend/src/pages/FeedPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-interaction-features-allowing-users-to-like-posts-and-view-like-counts",
+      "featureTitle": "Add interaction features allowing users to like posts and view like counts",
+      "files": [
+        "frontend/src/components/LikeButton.tsx",
+        "frontend/src/components/PostCard.tsx",
+        "frontend/src/hooks/useGetLikeCount.ts",
+        "frontend/src/hooks/useLikePost.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-commenting-system-where-users-can-add-comments-to-posts-and-view-all-comments-on-each-post",
+      "featureTitle": "Create a commenting system where users can add comments to posts and view all comments on each post",
+      "files": [
+        "frontend/src/components/CommentForm.tsx",
+        "frontend/src/components/CommentItem.tsx",
+        "frontend/src/components/CommentList.tsx",
+        "frontend/src/components/PostCard.tsx",
+        "frontend/src/hooks/useAddComment.ts",
+        "frontend/src/hooks/useGetComments.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-vibrant-modern-community-focused-interface-with-a-warm-color-palette-coral-teal-amber-accents-friendly-rounded-typography-and-card-based-layouts-that-encourage-social-interaction-and-content-discovery",
+      "featureTitle": "Design a vibrant, modern community-focused interface with a warm color palette (coral, teal, amber accents), friendly rounded typography, and card-based layouts that encourage social interaction and content discovery",
+      "files": [
+        "frontend/src/components/PostCard.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-generated-community-platform-images-including-a-hero-banner-and-community-icon-as-static-assets-in-frontend-public-assets-generated",
+      "featureTitle": "Display generated community platform images including a hero banner and community icon as static assets in frontend/public/assets/generated",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/pages/FeedPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

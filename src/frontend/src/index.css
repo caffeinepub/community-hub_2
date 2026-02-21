@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1rem;
+        
+        /* Warm color palette - Light mode */
+        --background: 0.99 0.01 60;
+        --foreground: 0.2 0.02 30;
+        --card: 1 0 0;
+        --card-foreground: 0.2 0.02 30;
+        --popover: 1 0 0;
+        --popover-foreground: 0.2 0.02 30;
+        
+        /* Coral primary */
+        --primary: 0.68 0.18 25;
+        --primary-foreground: 1 0 0;
+        
+        /* Teal secondary */
+        --secondary: 0.72 0.12 170;
+        --secondary-foreground: 1 0 0;
+        
+        /* Amber accent */
+        --accent: 0.78 0.15 60;
+        --accent-foreground: 0.2 0.02 30;
+        
+        --muted: 0.96 0.01 60;
+        --muted-foreground: 0.55 0.02 30;
+        --destructive: 0.58 0.24 27;
+        --destructive-foreground: 1 0 0;
+        --border: 0.92 0.01 60;
+        --input: 0.92 0.01 60;
+        --ring: 0.68 0.18 25;
+        
+        --chart-1: 0.68 0.18 25;
+        --chart-2: 0.72 0.12 170;
+        --chart-3: 0.78 0.15 60;
+        --chart-4: 0.82 0.10 140;
+        --chart-5: 0.75 0.14 40;
+    }
+
+    .dark {
+        --background: 0.15 0.02 30;
+        --foreground: 0.98 0.01 60;
+        --card: 0.20 0.02 30;
+        --card-foreground: 0.98 0.01 60;
+        --popover: 0.18 0.02 30;
+        --popover-foreground: 0.98 0.01 60;
+        
+        /* Coral primary - adjusted for dark */
+        --primary: 0.72 0.16 25;
+        --primary-foreground: 0.15 0.02 30;
+        
+        /* Teal secondary - adjusted for dark */
+        --secondary: 0.68 0.14 170;
+        --secondary-foreground: 0.15 0.02 30;
+        
+        /* Amber accent - adjusted for dark */
+        --accent: 0.75 0.13 60;
+        --accent-foreground: 0.15 0.02 30;
+        
+        --muted: 0.25 0.02 30;
+        --muted-foreground: 0.65 0.02 60;
+        --destructive: 0.62 0.22 27;
+        --destructive-foreground: 0.98 0.01 60;
+        --border: 0.30 0.02 30;
+        --input: 0.30 0.02 30;
+        --ring: 0.72 0.16 25;
+        
+        --chart-1: 0.72 0.16 25;
+        --chart-2: 0.68 0.14 170;
+        --chart-3: 0.75 0.13 60;
+        --chart-4: 0.78 0.12 140;
+        --chart-5: 0.70 0.12 40;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+}
+
+@layer utilities {
+    .bg-coral {
+        background-color: oklch(0.68 0.18 25);
+    }
+    .bg-coral-dark {
+        background-color: oklch(0.62 0.18 25);
+    }
+    .text-coral {
+        color: oklch(0.68 0.18 25);
+    }
+    .text-coral-dark {
+        color: oklch(0.62 0.18 25);
+    }
+    .border-coral {
+        border-color: oklch(0.68 0.18 25);
+    }
+    
+    .bg-teal {
+        background-color: oklch(0.72 0.12 170);
+    }
+    .bg-teal-dark {
+        background-color: oklch(0.66 0.12 170);
+    }
+    .text-teal {
+        color: oklch(0.72 0.12 170);
+    }
+    .border-teal {
+        border-color: oklch(0.72 0.12 170);
+    }
+    
+    .bg-amber {
+        background-color: oklch(0.78 0.15 60);
+    }
+    .text-amber {
+        color: oklch(0.78 0.15 60);
+    }
+}

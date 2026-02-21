@@ -1,0 +1,113 @@
+{
+  "kind": "build_request",
+  "title": "Create community platform with user interactions",
+  "projectName": "Community Hub",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a user profile system where community members can view and edit their own profiles with username, bio, and avatar",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can create and update their profile information",
+        "Profile displays username, bio, and avatar image",
+        "Users can only edit their own profiles"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a post creation and feed system where users can create text posts and view a chronological feed of all community posts",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can create new text posts with content",
+        "All posts display in a feed sorted by most recent first",
+        "Each post shows the author's username and timestamp"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add interaction features allowing users to like posts and view like counts",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can like/unlike posts",
+        "Like count displays on each post",
+        "Users cannot like their own posts multiple times"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a commenting system where users can add comments to posts and view all comments on each post",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can add text comments to any post",
+        "Comments display under their respective posts",
+        "Each comment shows the commenter's username and timestamp"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Design a vibrant, modern community-focused interface with a warm color palette (coral, teal, amber accents), friendly rounded typography, and card-based layouts that encourage social interaction and content discovery",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visual design uses warm, inviting colors that avoid blue and purple",
+        "Interface elements use consistent rounded corners and friendly spacing",
+        "Layout facilitates easy browsing and interaction with community content"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Display generated community platform images including a hero banner and community icon as static assets in frontend/public/assets/generated",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero banner image displays prominently on the main page",
+        "Community icon appears in appropriate locations throughout the interface",
+        "Images load from frontend/public/assets/generated directory"
+      ]
+    }
+  ],
+  "constraints": [],
+  "nonGoals": [
+    "Real-time chat or messaging features",
+    "Private messaging between users",
+    "User roles or moderation tools",
+    "Content search or filtering",
+    "Notifications system"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Vibrant community platform hero banner with diverse people connecting and sharing, using warm coral and teal color scheme with friendly illustrated style (hero-banner.dim_1200x400.png)",
+      "Simple friendly community icon showing people gathering in a circular formation, warm colors, minimalist style (community-icon.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}

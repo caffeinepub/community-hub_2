@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Community platform application",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Vibrant community platform hero banner with diverse people connecting and sharing, using warm coral and teal color scheme with friendly illustrated style (hero-banner.dim_1200x400.png)\n- Simple friendly community icon showing people gathering in a circular formation, warm colors, minimalist style (community-icon.dim_128x128.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-user-profile-system-where-community-members-can-view-and-edit-their-own-profiles-with-username-bio-and-avatar",
+      "title": "Create a user profile system where community members can view and edit their own profiles with username, bio, and avatar",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-post-creation-and-feed-system-where-users-can-create-text-posts-and-view-a-chronological-feed-of-all-community-posts",
+      "title": "Implement a post creation and feed system where users can create text posts and view a chronological feed of all community posts",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-interaction-features-allowing-users-to-like-posts-and-view-like-counts",
+      "title": "Add interaction features allowing users to like posts and view like counts",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-commenting-system-where-users-can-add-comments-to-posts-and-view-all-comments-on-each-post",
+      "title": "Create a commenting system where users can add comments to posts and view all comments on each post",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-vibrant-modern-community-focused-interface-with-a-warm-color-palette-coral-teal-amber-accents-friendly-rounded-typography-and-card-based-layouts-that-encourage-social-interaction-and-content-discovery",
+      "title": "Design a vibrant, modern community-focused interface with a warm color palette (coral, teal, amber accents), friendly rounded typography, and card-based layouts that encourage social interaction and content discovery",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-generated-community-platform-images-including-a-hero-banner-and-community-icon-as-static-assets-in-frontend-public-assets-generated",
+      "title": "Display generated community platform images including a hero banner and community icon as static assets in frontend/public/assets/generated",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "gameProjectType": "none",
+  "projectName": "Community Hub",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
