@@ -1,0 +1,90 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T07:37:41.810Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 5,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Add an `isAvailable` boolean field to the free stuff post data model in the backend, defaulting to `true` for newly created posts. Expose a function to toggle or update availability status for a post.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Update `FreeStuffPostCard` to prominently display an availability badge or indicator (e.g., 'Available' in green / 'Unavailable' or 'Expired' in red/gray) based on the `isAvailable` field of each post.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/FreeStuffPostCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/FreeStuffPostCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Add an 'Available Only' filter toggle to `FreeStuffFeed` so users can filter the list to show only posts where `isAvailable` is `true`.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/FreeStuffFeed.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/FreeStuffFeed.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Update `FreeStuffCreationForm` to include an 'Available' checkbox/toggle field that sets the initial `isAvailable` value when creating a new free stuff post.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/FreeStuffCreationForm.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/FreeStuffCreationForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Update `useGetFreeStuffPosts` and `useCreateFreeStuffPost` hooks to pass and receive the `isAvailable` field, and add a new `useUpdateFreeStuffAvailability` mutation hook that calls the backend availability update function.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useGetFreeStuffPosts.ts",
+          "frontend/src/hooks/useCreateFreeStuffPost.ts",
+          "frontend/src/hooks/useUpdateFreeStuffAvailability.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useCreateFreeStuffPost.ts",
+          "frontend/src/hooks/useUpdateFreeStuffAvailability.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/FreeStuffCreationForm.tsx",
+    "frontend/src/components/FreeStuffFeed.tsx",
+    "frontend/src/components/FreeStuffPostCard.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useCreateFreeStuffPost.ts",
+    "frontend/src/hooks/useUpdateFreeStuffAvailability.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

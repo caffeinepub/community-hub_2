@@ -1,0 +1,80 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add availability status to Free Stuff posts",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Display availability badge on free stuff post cards",
+      "acceptanceCriteria": [
+        "Each free stuff post card shows a visible 'Available' or 'Unavailable' badge.",
+        "The badge styling clearly differentiates available vs. unavailable states using color.",
+        "The badge is consistent with the existing Roblox-inspired design system."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FreeStuffPostCard.tsx",
+          "operation": "modify",
+          "description": "Add a prominent availability badge component that displays 'Available' in green or 'Unavailable'/'Expired' in red/gray based on the post's `isAvailable` boolean field. Position the badge near the category badge using Roblox-inspired color tokens (e.g., bg-green-500/bg-red-500 or custom OKLCH colors). Ensure the badge is visible without requiring the content to be revealed."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add 'Available Only' filter toggle to free stuff feed",
+      "acceptanceCriteria": [
+        "A toggle/button labeled 'Available Only' appears in the FreeStuffFeed filter controls.",
+        "When active, only posts with `isAvailable: true` are displayed.",
+        "The filter integrates with existing category and sort filters without breaking them."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FreeStuffFeed.tsx",
+          "operation": "modify",
+          "description": "Add an 'Available Only' toggle button/checkbox to the existing filter controls (near category and sort filters). Implement client-side filtering logic to filter the fetched posts array where `isAvailable === true` when the toggle is active. Ensure the filter state is managed with React state (useState) and integrates seamlessly with the existing category filter and sort dropdown without breaking them. Style the toggle consistently with the Roblox theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add availability checkbox to free stuff creation form",
+      "acceptanceCriteria": [
+        "The creation form includes an 'Available' toggle that defaults to checked/true.",
+        "The value is passed through `useCreateFreeStuffPost` to the backend on submission."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FreeStuffCreationForm.tsx",
+          "operation": "modify",
+          "description": "Add an 'Available' checkbox/toggle field to the form (use a controlled input with useState). Default the state to `true`. Wire the value into the form submission so it is passed to the `useCreateFreeStuffPost` hook when creating a new post. Label the field clearly as 'Available' and style it consistently with the rest of the form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Update hooks to handle isAvailable field and add availability update mutation",
+      "acceptanceCriteria": [
+        "Fetched free stuff posts include the `isAvailable` field.",
+        "Create mutation passes `isAvailable` to the backend.",
+        "A `useUpdateFreeStuffAvailability` hook exists and invalidates the freeStuffPosts cache on success."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useGetFreeStuffPosts.ts",
+          "operation": "modify",
+          "description": "Ensure the hook correctly types and returns the `isAvailable` boolean field from the backend `FreeStuffPost` interface. Verify the TypeScript type matches the backend interface definition."
+        },
+        {
+          "path": "frontend/src/hooks/useCreateFreeStuffPost.ts",
+          "operation": "modify",
+          "description": "Update the mutation function signature to accept an `isAvailable` boolean parameter and pass it to the backend `createFreeStuffPost` method. Ensure the hook invalidates the freeStuffPosts cache on success."
+        },
+        {
+          "path": "frontend/src/hooks/useUpdateFreeStuffAvailability.ts",
+          "operation": "create",
+          "description": "Create a new React Query mutation hook that calls the backend `updateFreeStuffAvailability(postId: bigint, isAvailable: boolean)` method. The hook should accept postId and isAvailable as parameters, use the actor from useActor, and invalidate the 'freeStuffPosts' query cache on success using queryClient.invalidateQueries."
+        }
+      ]
+    }
+  ]
+}

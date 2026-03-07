@@ -1,0 +1,37 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T07:37:41.807Z",
+  "summary": "The diff implements most requirements. REQ-1 backend model and migration are present, REQ-2 badge in FreeStuffPostCard is present, REQ-3 'Available Only' filter in FreeStuffFeed is present, REQ-4 toggle in FreeStuffCreationForm is present, and useUpdateFreeStuffAvailability hook is added. However, useCreateFreeStuffPost does NOT pass isAvailable to the backend call (the actor call omits the parameter), and there is no evidence that useGetFreeStuffPosts was updated to expose the isAvailable field.",
+  "missing_requirements": [
+    {
+      "id": "REQ-5",
+      "requirement": "Create mutation passes isAvailable to the backend.",
+      "reason": "In useCreateFreeStuffPost.ts, actor.createFreeStuffPost is called with only 9 arguments (title, description, category, contentType, content, tags, expirationTime, link, proof) and does NOT include the isAvailable parameter, even though the interface accepts it as optional.",
+      "evidence": [
+        "frontend/src/hooks/useCreateFreeStuffPost.ts"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Update useGetFreeStuffPosts hook to pass and receive the isAvailable field.",
+      "reason": "No diff for useGetFreeStuffPosts.ts is shown in the modified files list. There is no evidence the hook was modified to handle the isAvailable field.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.82,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/components/FreeStuffCreationForm.tsx",
+    "frontend/src/components/FreeStuffFeed.tsx",
+    "frontend/src/components/FreeStuffPostCard.tsx",
+    "frontend/src/hooks/useCreateFreeStuffPost.ts",
+    "frontend/src/hooks/useUpdateFreeStuffAvailability.ts",
+    "project_state.json"
+  ]
+}

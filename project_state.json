@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Roblox fan app with a section highlighting available free stuff",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-update-freestuffpostcard-to-prominently-display-an-availability-badge-or-indicator-e-g-available-in-green-unavailable-or-expired-in-red-gray-based-on-the-isavailable-field-of-each-post",
+      "title": "Update `FreeStuffPostCard` to prominently display an availability badge or indicator (e.g., 'Available' in green / 'Unavailable' or 'Expired' in red/gray) based on the `isAvailable` field of each post.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-available-only-filter-toggle-to-freestufffeed-so-users-can-filter-the-list-to-show-only-posts-where-isavailable-is-true",
+      "title": "Add an 'Available Only' filter toggle to `FreeStuffFeed` so users can filter the list to show only posts where `isAvailable` is `true`.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-freestuffcreationform-to-include-an-available-checkbox-toggle-field-that-sets-the-initial-isavailable-value-when-creating-a-new-free-stuff-post",
+      "title": "Update `FreeStuffCreationForm` to include an 'Available' checkbox/toggle field that sets the initial `isAvailable` value when creating a new free stuff post.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-usegetfreestuffposts-and-usecreatefreestuffpost-hooks-to-pass-and-receive-the-isavailable-field-and-add-a-new-useupdatefreestuffavailability-mutation-hook-that-calls-the-backend-availability-update-function",
+      "title": "Update `useGetFreeStuffPosts` and `useCreateFreeStuffPost` hooks to pass and receive the `isAvailable` field, and add a new `useUpdateFreeStuffAvailability` mutation hook that calls the backend availability update function.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add a section showing available free items/rewards",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add an `isAvailable` boolean field to the free stuff post data model in the backend, defaulting to `true` for newly created posts. Expose a function to toggle or update availability status for a post.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Roblox Fan App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

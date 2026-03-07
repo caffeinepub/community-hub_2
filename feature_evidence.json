@@ -1,0 +1,86 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-freestuffpostcard-to-prominently-display-an-availability-badge-or-indicator-e-g-available-in-green-unavailable-or-expired-in-red-gray-based-on-the-isavailable-field-of-each-post",
+      "featureTitle": "Update `FreeStuffPostCard` to prominently display an availability badge or indicator (e.g., 'Available' in green / 'Unavailable' or 'Expired' in red/gray) based on the `isAvailable` field of each post.",
+      "files": [
+        "frontend/src/components/FreeStuffPostCard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-available-only-filter-toggle-to-freestufffeed-so-users-can-filter-the-list-to-show-only-posts-where-isavailable-is-true",
+      "featureTitle": "Add an 'Available Only' filter toggle to `FreeStuffFeed` so users can filter the list to show only posts where `isAvailable` is `true`.",
+      "files": [
+        "frontend/src/components/FreeStuffFeed.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-freestuffcreationform-to-include-an-available-checkbox-toggle-field-that-sets-the-initial-isavailable-value-when-creating-a-new-free-stuff-post",
+      "featureTitle": "Update `FreeStuffCreationForm` to include an 'Available' checkbox/toggle field that sets the initial `isAvailable` value when creating a new free stuff post.",
+      "files": [
+        "frontend/src/components/FreeStuffCreationForm.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-usegetfreestuffposts-and-usecreatefreestuffpost-hooks-to-pass-and-receive-the-isavailable-field-and-add-a-new-useupdatefreestuffavailability-mutation-hook-that-calls-the-backend-availability-update-function",
+      "featureTitle": "Update `useGetFreeStuffPosts` and `useCreateFreeStuffPost` hooks to pass and receive the `isAvailable` field, and add a new `useUpdateFreeStuffAvailability` mutation hook that calls the backend availability update function.",
+      "files": [
+        "frontend/src/hooks/useCreateFreeStuffPost.ts",
+        "frontend/src/hooks/useUpdateFreeStuffAvailability.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

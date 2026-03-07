@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+
+        /* Roblox-inspired bold red & white palette - Light mode */
+        --background: 0.97 0.005 20;
+        --foreground: 0.15 0.02 20;
+        --card: 1 0 0;
+        --card-foreground: 0.15 0.02 20;
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0.02 20;
+
+        /* Bold Roblox Red primary */
+        --primary: 0.52 0.22 25;
+        --primary-foreground: 1 0 0;
+
+        /* Dark charcoal secondary */
+        --secondary: 0.22 0.01 20;
+        --secondary-foreground: 1 0 0;
+
+        /* Gold/yellow accent */
+        --accent: 0.82 0.18 80;
+        --accent-foreground: 0.15 0.02 20;
+
+        --muted: 0.94 0.01 20;
+        --muted-foreground: 0.50 0.02 20;
+        --destructive: 0.52 0.22 25;
+        --destructive-foreground: 1 0 0;
+        --border: 0.90 0.01 20;
+        --input: 0.90 0.01 20;
+        --ring: 0.52 0.22 25;
+
+        --chart-1: 0.52 0.22 25;
+        --chart-2: 0.22 0.01 20;
+        --chart-3: 0.82 0.18 80;
+        --chart-4: 0.60 0.15 200;
+        --chart-5: 0.65 0.18 145;
+    }
+
+    .dark {
+        --background: 0.12 0.01 20;
+        --foreground: 0.97 0.005 20;
+        --card: 0.18 0.01 20;
+        --card-foreground: 0.97 0.005 20;
+        --popover: 0.16 0.01 20;
+        --popover-foreground: 0.97 0.005 20;
+
+        /* Bold Roblox Red primary - dark */
+        --primary: 0.58 0.22 25;
+        --primary-foreground: 1 0 0;
+
+        /* Light secondary for dark mode */
+        --secondary: 0.85 0.01 20;
+        --secondary-foreground: 0.12 0.01 20;
+
+        /* Gold accent - dark */
+        --accent: 0.78 0.18 80;
+        --accent-foreground: 0.12 0.01 20;
+
+        --muted: 0.22 0.01 20;
+        --muted-foreground: 0.65 0.01 20;
+        --destructive: 0.58 0.22 25;
+        --destructive-foreground: 1 0 0;
+        --border: 0.28 0.01 20;
+        --input: 0.28 0.01 20;
+        --ring: 0.58 0.22 25;
+
+        --chart-1: 0.58 0.22 25;
+        --chart-2: 0.85 0.01 20;
+        --chart-3: 0.78 0.18 80;
+        --chart-4: 0.60 0.15 200;
+        --chart-5: 0.65 0.18 145;
+    }
+
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+}
+
+@layer utilities {
+    /* Roblox Red */
+    .bg-roblox-red {
+        background-color: oklch(0.52 0.22 25);
+    }
+    .bg-roblox-red-dark {
+        background-color: oklch(0.44 0.22 25);
+    }
+    .bg-roblox-red-light {
+        background-color: oklch(0.92 0.06 25);
+    }
+    .text-roblox-red {
+        color: oklch(0.52 0.22 25);
+    }
+    .border-roblox-red {
+        border-color: oklch(0.52 0.22 25);
+    }
+    .hover\:bg-roblox-red:hover {
+        background-color: oklch(0.52 0.22 25);
+    }
+    .hover\:bg-roblox-red-dark:hover {
+        background-color: oklch(0.44 0.22 25);
+    }
+
+    /* Roblox Dark */
+    .bg-roblox-dark {
+        background-color: oklch(0.18 0.01 20);
+    }
+    .text-roblox-dark {
+        color: oklch(0.18 0.01 20);
+    }
+
+    /* Roblox Gold */
+    .bg-roblox-gold {
+        background-color: oklch(0.82 0.18 80);
+    }
+    .text-roblox-gold {
+        color: oklch(0.82 0.18 80);
+    }
+
+    /* Blocky avatar style */
+    .avatar-blocky {
+        border-radius: 4px;
+    }
+
+    /* Game card style */
+    .game-card {
+        border-radius: 8px;
+        border-width: 2px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .game-card:hover {
+        transform: translateY(-2px);
+    }
+}
